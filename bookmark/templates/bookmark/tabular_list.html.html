@@ -33,25 +33,23 @@
 <body>
     <div id="content">
         <h1>바로가기 모음</h1>
-        {% if request.path == "/bookmark_t_CBV/" %}
-            <p>{{ request.path }} => views.BookmarkLV => bookmark_list.html</p>
-            <table id="tb1">
+        <p>{{ request.path }} => views.tabularBookmark => tabular_list.html</p>
+        <table id="tb1">
+            <tr>
+                <th>id</th>
+                <th>title</th>
+                <th>url</th>
+            </tr>
+            {% for bookmark in bookmarks %}
                 <tr>
-                    <th>id</th>
-                    <th>title</th>
-                    <th>url</th>
+                    <td>{{ bookmark.id }}</td>
+                    <td>{{ bookmark.title }}</td>
+                    <td>
+                        <a href="{% url 'detail' bookmark.id %}">{{ bookmark.url }}</a>
+                    </td>
                 </tr>
-                {% for bookmark in object_list %}
-                    <tr>
-                        <td>{{ bookmark.id }}</td>
-                        <td>{{ bookmark.title }}</td>
-                        <td>
-                            <a href="{% url 'detail' bookmark.id %}">{{ bookmark.url }}</a>
-                        </td>
-                    </tr>
-                {% endfor %}
-            </table>
-        {% endif %}
+            {% endfor %}
+        </table>
     </div>
 </body>
 </html>

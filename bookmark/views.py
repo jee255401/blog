@@ -10,3 +10,7 @@ class BookmarkLV(ListView):
 
 class BookmarkDV(DetailView):
     model = Bookmark
+
+def tabularBookmark(request):
+    bookmarks = Bookmark.objects.all().order_by('id')
+    return render(request, 'bookmark/tabular_list.html', {'bookmarks': bookmarks})
