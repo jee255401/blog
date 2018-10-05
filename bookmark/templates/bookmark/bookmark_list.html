@@ -34,6 +34,7 @@
     <div id="content">
         <h1>바로가기 모음</h1>
         {% if request.path == "/bookmark_t_CBV/" %}
+        {% if request.path == "/bookmark/" %}
             <p>{{ request.path }} => views.BookmarkLV => bookmark_list.html</p>
             <table id="tb1">
                 <tr>
