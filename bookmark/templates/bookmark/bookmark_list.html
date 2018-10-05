@@ -34,7 +34,6 @@
     <div id="content">
         <h1>바로가기 모음</h1>
         {% if request.path == "/bookmark_t_CBV/" %}
-        {% if request.path == "/bookmark/" %}
             <p>{{ request.path }} => views.BookmarkLV => bookmark_list.html</p>
             <table id="tb1">
                 <tr>
@@ -52,6 +51,15 @@
                     </tr>
                 {% endfor %}
             </table>
+        {% else %}
+            <p>{{ request.path }} => views.Book,arkLV => bookmark_list.html</p>
+            <ul>
+                {% for bookmark in object_list %}
+                    <li>
+                        <a href="{% url 'detail' bookmark.id %}">{{ bookmark }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
         {% endif %}
     </div>
 </body>
