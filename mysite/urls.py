@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-# from bookmark.views import BookmarkLV, BookmarkDV
+from bookmark.views import BookmarkLV, BookmarkDV
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
